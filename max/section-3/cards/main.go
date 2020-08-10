@@ -1,9 +1,5 @@
 package main
 
-import "fmt"
-
-var deckSize int
-
 func main() {
     // long variable initialization form
     //var card string = "Ace of Spades"
@@ -34,7 +30,10 @@ func main() {
     // type declaration required
     // a slice of type string
     // both strings and functions that return strings are valid
-    cards := []string{"Ace of Spades", newCard()}
+    // cards := []string{"Ace of Spades", newCard()}
+
+    // we made a type called deck, so lets instatiate that instead
+    cards := deck{"Ace of Spades", newCard()}
 
     // let's add an item to the slice
     // a new slice is created using the current content of `cards` plus
@@ -49,20 +48,24 @@ func main() {
     // print the index and the data at that index
     // the colon-equals is used because the variables i and card
     // go out-of-scope as the loop closes
-    for i, card := range cards {
-        fmt.Println(i, card)
-    }
+    //for i, card := range cards {
+    //    fmt.Println(i, card)
+    //}
     // in python:
     // for i in cards:
     //    print(cards)
+
+    // we made a function called print that can be used on type deck
+    // so let's use that instead
+    cards.print()
 
 
     // I am a bit confused by this
     // the index returned, not the content of `cards`
     // this is probably my defaulting to python
-    for card := range cards {
-        fmt.Println(card)
-    }
+    //for card := range cards {
+    //    fmt.Println(card)
+    //}
     // the loop above does this:
     // for i in cards:
     //    print(cards.index(i))
