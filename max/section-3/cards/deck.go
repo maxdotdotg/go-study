@@ -5,6 +5,23 @@ import "fmt"
 // which is a slice of strings
 type deck []string
 
+func newDeck() deck {
+    cards := deck{}
+
+    cardSuits := []string{"Spades","Diamonds","Clubs","Hearts"}
+    cardValues := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"}
+
+    // for variables that will never be used, like the index here
+    // we can replace it with an underscore so the compiler
+    // doesn't yell at us
+    for _, suit := range cardSuits {
+        for _, value := range cardValues {
+            cards = append(cards, value+" of "+suit)
+        }
+    }
+    return cards
+}
+
 // new custom function
 // this is available to any variables of type `deck` 
 // and it prints the content

@@ -33,7 +33,7 @@ func main() {
     // cards := []string{"Ace of Spades", newCard()}
 
     // we made a type called deck, so lets instatiate that instead
-    cards := deck{"Ace of Spades", newCard()}
+    //cards := deck{"Ace of Spades", newCard()}
 
     // let's add an item to the slice
     // a new slice is created using the current content of `cards` plus
@@ -41,7 +41,7 @@ func main() {
     // that new since is assigned to the variable `cards`
     // this makes me feel not great, and I am not sure why
     // maybe it's the mutable part? IDK
-    cards = append(cards, "Six of Clubs")
+    //cards = append(cards, "Six of Clubs")
 
     // let's iterate
     // for index and card in the slice/list/thing that is cards
@@ -55,8 +55,12 @@ func main() {
     // for i in cards:
     //    print(cards)
 
-    // we made a function called print that can be used on type deck
-    // so let's use that instead
+    // make a new deck, this time using the custom type
+    cards := newDeck()
+
+
+    // we made a function called print in deck.go that can be used 
+    // on type `deck` so let's use that instead
     cards.print()
 
 
@@ -72,7 +76,7 @@ func main() {
 }
 
 // function signatures require return type declarations
-func newCard() string {
-    return "Five of Hearts"
-}
+//func newCard() string {
+//    return "Five of Hearts"
+//}
 
