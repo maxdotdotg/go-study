@@ -82,6 +82,8 @@ func main() {
 	// save the deck to the file system
 	cards.saveToFile("test-deck")
 
+	new_deck := newDeckFromFile("test-deck")
+	new_deck.print()
 }
 
 // function signatures require return type declarations

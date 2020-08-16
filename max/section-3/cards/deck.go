@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -55,5 +56,21 @@ func (d deck) saveToFile(filename string) error {
 	// using the WriteFile function from the ioutil package
 	// write the file after converting `deck` to string to bytes
 	// file permissions are part of the signature for WriteFile
+
+	// FIXME: I have no real idea why we're returning the error type
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
+}
+
+func newDeckFromFile(filename string) deck {
+	// read from file, and capture both the byte slice and the error
+	// if error's not empty, break and exit 1
+	// lots of this pattern in go, if error exists, then exit
+	bs, err := ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error reading file:", err)
+		os.Exit(1)
+	}
+
+	s := strings.Split(string(bs), ",")
+	return deck(s)
 }
