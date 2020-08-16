@@ -72,10 +72,16 @@ func main() {
 	//    print(cards.index(i))
 
 	// deal a hand
-    hand, remainingDeck := deal(cards, 5)
+	//hand, remainingDeck := deal(cards, 5)
+	//hand.print()
+	//remainingDeck.print()
 
-    hand.print()
-    remainingDeck.print()
+	// write the deck to stdout as one long string
+	//fmt.Println(cards.toString())
+
+	// save the deck to the file system
+	cards.saveToFile("test-deck")
+
 }
 
 // function signatures require return type declarations
