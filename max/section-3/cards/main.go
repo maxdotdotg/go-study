@@ -83,6 +83,7 @@ func main() {
 	cards.saveToFile("test-deck")
 
 	new_deck := newDeckFromFile("test-deck")
+	new_deck.shuffleDeck()
 	new_deck.print()
 }
 
