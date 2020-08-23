@@ -106,3 +106,22 @@ address/pointer     value
 turn `address` into `value` using `*address`
 turn `value` into `address` using `&value`
 */
+
+
+/* reference types
+types that include a reference/pointer to an underlying data structure
+so there's no need to create one
+slice - includes a reference to an underlying array
+maps
+channels
+pointers
+functions
+
+value types
+require pointers to change values
+int
+float
+bool
+string
+struct
+*/
