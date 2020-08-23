@@ -9,7 +9,11 @@ type person struct {
 
     // embedded structs!
     // makes sense, just another property/type pair
-    contact contactInfo
+    // in this case, the propterty name and the struct name are not the same
+    // contact contactInfo
+
+    // this can also be done where the property name is the same as the struct
+    contactInfo
 }
 
 type contactInfo struct {
@@ -48,7 +52,7 @@ func main() {
     bobby := person{
         firstName: "bobby",
         lastName: "tables",
-        contact: contactInfo{
+        contactInfo: contactInfo{
             email: "stuff@things.co",
             zipCode: 11111,
         },
