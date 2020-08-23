@@ -57,5 +57,52 @@ func main() {
             zipCode: 11111,
         },
     }
-    fmt.Println(bobby.contact.email)
+    fmt.Println(bobby.contactInfo.email)
+    bobby.print()
+
+    // &variableName for access to pointers
+    // pointer aka address in memory, NOT underlying value
+
+    // the long way to make a pointer variable
+    // bobbyPointer := &bobby
+
+
+    // ALSO! go will let you call receivers for `*type` on a variable of `type`
+    bobby.updateName("not bobby")
+
+    bobby.print()
 }
+
+// structs can have receiver functions as well
+func (p person) print() {
+    fmt.Printf("%+v\n", p)
+}
+
+/*
+// this does not actually update the existing firstName propterty
+// "Go is a pass-by-value language"
+// when calling a receiver, go makes a copy of the struct
+// and performs any changes on the copy
+// kind of like a mutable reference? 
+func (p person) updateName(name string) {
+    p.firstName = name
+}
+*/
+
+// in order to update the underlying struct,
+// pass a pointer to the struct
+// `*pointer` is the value at the pointer, the data itself
+// for function signatures, `*type` is a pointer to `type`
+func (pointerToPerson *person) updateName (name string) {
+    // take the pointer, change it to a value
+    // and update the firstName property
+    (*pointerToPerson).firstName = name
+}
+
+
+/*
+001                 person{firstName: "idk"}
+address/pointer     value
+turn `address` into `value` using `*address`
+turn `value` into `address` using `&value`
+*/
