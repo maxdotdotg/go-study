@@ -10,7 +10,10 @@ type person struct {
 
 func main() {
     // attribute creation/reference with dot-notation
+    // `alex` is initialized with the Zero Value of "" type string
+    // for the properties firstName and lastName
     var alex person
+    fmt.Printf("%+v\n", alex)
     alex.firstName = "alex"
     alex.lastName = "anderson"
     fmt.Println(alex.lastName)
