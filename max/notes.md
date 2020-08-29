@@ -18,5 +18,11 @@ when making an executable, instead of a lib, the package is always named main, a
     yep, using type conversion: `targetType(currentType)` so `[]byte("hello human")`
 
 ## maps
-- keys and values are statically typed :neutral-face: 
+- types of keys can't change
+- types of values can't change either
+- differences between structs and maps
+    structs can have different types of keys and values
+    map keys are indexed, struct keys are not
+    maps are reference types, structs are value types
+    can't add new properties to structs on the fly, they must all be known at compile time
 

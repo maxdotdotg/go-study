@@ -41,4 +41,11 @@ func main() {
     // also for fun, we can delete keys that don't exist without error
     delete(colors, "batman vs dracula")
 
+    printMap(cool_books)
+}
+
+func printMap(c map[string]string) {
+    for key, value := range c {
+        fmt.Println("the key is", key, "but the value is", value)
+    }
 }
