@@ -29,4 +29,7 @@ when making an executable, instead of a lib, the package is always named main, a
 
 ## interfaces
 - one goal is to make code reuse easier?
+- function overloading is not a thing in go
+- interfaces aren't concrete types like int or struct
+    they're an implicit superset of concrete types? I think?
 
