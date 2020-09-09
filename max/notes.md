@@ -37,3 +37,8 @@ when making an executable, instead of a lib, the package is always named main, a
     I HAVE NO IDEA WHAT THIS IS SUPPOSED TO MEAN
     https://www.udemy.com/course/go-the-complete-developers-guide/learn/lecture/7797398#overview
     I have no idea what's going on...
+
+- re-implement cat
+    read file and print to terminal
+    file should be provided as an argument (use `os.Args`)
+
