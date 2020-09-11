@@ -8,7 +8,7 @@ type bot interface{
     // then it's ALSO this type
     // ANOTHER WAY
     // if a type/struct satisfies the interface, 
-    // it has access to the inerface's functoins
+    // it has access to the inerface's functions
 
     // func name and return type
     getGreeting() string

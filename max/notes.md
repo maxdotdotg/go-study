@@ -1,10 +1,10 @@
 ## general
-`go run` compiles and executes the code in the working dir
-`go build` compiles the code in the working dir, not running anything
-`go fmt` linting, including 8 spaces for indentation
-`go install` compile and install (make availabile via path?)
-`go get` get a library or similar from the internet
-`go test` run tests, yo
+* `go run` compiles and executes the code in the working dir
+* `go build` compiles the code in the working dir, not running anything
+* `go fmt` linting, including 8 spaces for indentation
+* `go install` compile and install (make availabile via path?)
+* `go get` get a library or similar from the internet
+* `go test` run tests, yo
 
 when making an executable, instead of a lib, the package is always named main, and _must_ have a function called main
 
@@ -32,4 +32,13 @@ when making an executable, instead of a lib, the package is always named main, a
 - function overloading is not a thing in go
 - interfaces aren't concrete types like int or struct
     they're an implicit superset of concrete types? I think?
+- interfaces can be _nested_! yay...
+- WHAT THE IN THE ACTUAL FUCK
+    I HAVE NO IDEA WHAT THIS IS SUPPOSED TO MEAN
+    https://www.udemy.com/course/go-the-complete-developers-guide/learn/lecture/7797398#overview
+    I have no idea what's going on...
+
+- re-implement cat
+    read file and print to terminal
+    file should be provided as an argument (use `os.Args`)
 
