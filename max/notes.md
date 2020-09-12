@@ -37,6 +37,14 @@ when making an executable, instead of a lib, the package is always named main, a
     I HAVE NO IDEA WHAT THIS IS SUPPOSED TO MEAN
     https://www.udemy.com/course/go-the-complete-developers-guide/learn/lecture/7797398#overview
     I have no idea what's going on...
+- some thoughts
+    functions have to be implemented to satisfy an interface
+    once the interfaces has been satisfied, behavior is consistent between types
+    `os.Open` returns `*File`, a pointer to type `File`
+    type `File` implements [Write](https://golang.org/pkg/os/#File.Write)
+    type `File` also implements [Read](https://golang.org/pkg/os/#File.Read)
+    `os.Stdout` is of type `File`, which implements the `Writer` interface
+    `io.Copy` takes a destination that implements `Writer`, and a source that implements `Reader`, and type `File` satisfies both interfaces
 
 - re-implement cat
     read file and print to terminal
