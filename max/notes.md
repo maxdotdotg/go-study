@@ -45,6 +45,7 @@ when making an executable, instead of a lib, the package is always named main, a
     type `File` also implements [Read](https://golang.org/pkg/os/#File.Read)
     `os.Stdout` is of type `File`, which implements the `Writer` interface
     `io.Copy` takes a destination that implements `Writer`, and a source that implements `Reader`, and type `File` satisfies both interfaces
+    [a helpful talk from GopherCon China 2017](https://www.youtube.com/watch?v=F4wUrj6pmSI)
 
 - re-implement cat
     read file and print to terminal
