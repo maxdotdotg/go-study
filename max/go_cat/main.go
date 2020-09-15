@@ -1,6 +1,7 @@
 package main
 
 import (
+    "flag"
     "fmt"
     "io"
     "os"
@@ -16,20 +17,24 @@ func main(){
     maybe it's this?
     https://golang.org/pkg/os/#pkg-variables
     */
-    args := os.Args
-    if len(args) != 2 {
-        fmt.Println("accepts only one argument, a file to print to stdout")
-        os.Exit(1)
-    }
+
+    // this time, let's use flag.Args()
+    // https://golang.org/pkg/flag/#Args
+    // flags.Args returns a slice of strings, so we can 
+    // loop over it after it becomes available with flag.Parse()
+    flag.Parse()
 
     /*
     open the file
     https://golang.org/pkg/os/#Open
     */
-    file, err := os.Open(string(args[1]))
-    if err != nil {
-        fmt.Println("error", err)
-        os.Exit(1)
+    for _, fileName := range flag.Args() {
+        fileName, err := os.Open(fileName)
+        if err != nil {
+            fmt.Println("error", err)
+            os.Exit(1)
+        }
+        io.Copy(os.Stdout, fileName)
     }
 
     /* 
@@ -47,7 +52,7 @@ func main(){
     https://golang.org/pkg/os/#pkg-variables
     
 
-    */
     io.Copy(os.Stdout, file)
+    */
 }
 
