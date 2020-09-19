@@ -51,3 +51,14 @@ when making an executable, instead of a lib, the package is always named main, a
     read file and print to terminal
     file should be provided as an argument (use `os.Args`)
 
+## channels and go routines
+- concurrency is not paralellism
+    concurrency: multiple blocking threads on one CPU; scheule many things at once
+    paralellism: requires multiple CPUs, multiple instances of execution, so different blocking threads on different CPUs; schedule and execute many things at once
+- using `go` in front of a function call is not sufficient. The parent thread doesn't wait for the child threads to complete before exiting
+- channels are the only way to communicate between go routines
+    channels are typed, and can only send data of that type
+- data is sent over channels using arrows!
+    send the value 5 into this channel: `channel <- 5`
+    assign the data send to this channel to `myVar`: `myVar <- channel`
+    print the data sent to this channel/use the data from this channel as an argument for a function: `fmt.Println(<- channel)`
