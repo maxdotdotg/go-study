@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
-    "time"
+	"time"
 )
 
 func main() {
@@ -40,22 +40,22 @@ func main() {
 	//	fmt.Println(<-c)
 	//}
 
-    // make that loop infinite!
-    // for {
-    //  DO SOME STUFF
-    // }
+	// make that loop infinite!
+	// for {
+	//  DO SOME STUFF
+	// }
 
-    /* 
-    // make the infinite loop more readable
-    // for messages in channel (infinite because there's no limit to the number
-    // of messages?)
-    for l := range c {
-        // send the content of channel c as input to the statusCheck 
-        // function and make it a go routine, since statusCheck uses 
-        // http.Get whicih is a blocking operation
-        go statusCheck(l, c)
-    }
-    */
+	/*
+	   // make the infinite loop more readable
+	   // for messages in channel (infinite because there's no limit to the number
+	   // of messages?)
+	   for l := range c {
+	       // send the content of channel c as input to the statusCheck
+	       // function and make it a go routine, since statusCheck uses
+	       // http.Get whicih is a blocking operation
+	       go statusCheck(l, c)
+	   }
+	*/
 
 	/*
 	   // serial version
@@ -64,18 +64,18 @@ func main() {
 	   }
 	*/
 
-    // use a function literal (lambda function from python) to insert a pause
-    // between go routines
-    // don't use variables declared outisde the function literal inside the
-    // function literal, except the channel in this case, I guess?
-    // not using variables from outside the function literal makes sure the
-    // child go routines are accessing the correct data in memory, 
-    for l := range c {
-        go func(link string) {
-            time.Sleep(5 * time.Second)
-            statusCheck(link, c)
-        }(l) // requires `()` at the end so it gets called
-    }
+	// use a function literal (lambda function from python) to insert a pause
+	// between go routines
+	// don't use variables declared outisde the function literal inside the
+	// function literal, except the channel in this case, I guess?
+	// not using variables from outside the function literal makes sure the
+	// child go routines are accessing the correct data in memory,
+	for l := range c {
+		go func(link string) {
+			time.Sleep(5 * time.Second)
+			statusCheck(link, c)
+		}(l) // requires `()` at the end so it gets called
+	}
 }
 
 func statusCheck(url string, c chan string) {
@@ -83,13 +83,13 @@ func statusCheck(url string, c chan string) {
 	if err != nil {
 		fmt.Println(url, "might be down. err:", err)
 		//c <- "is down maybe"
-        // send the url to the channel instead
-        c <- url
+		// send the url to the channel instead
+		c <- url
 		return
 	}
 	fmt.Println(url, "is accepting traffic, got", resp.Status)
 	// c <- "is up"
-    c <- url
+	c <- url
 }
 
 /*
